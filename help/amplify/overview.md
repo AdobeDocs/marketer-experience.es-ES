@@ -1,17 +1,17 @@
 ---
-title: Amplificar información general
+title: Información general de Amplify
 description: Esta es la página de información general de Amplify.
 source-git-commit: a389631a2baa639496f4168a164aa3461157f5ff
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '17'
-ht-degree: 5%
+ht-degree: 100%
 
 ---
 
 
 # Información general
 
-Le damos la bienvenida a la guía de usuario de Amplify.
+Bienvenido a la guía del usuario de Amplify.
 
 MÁS...
 

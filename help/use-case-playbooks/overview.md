@@ -1,17 +1,17 @@
 ---
-title: Información general sobre casos de uso
-description: Esta es la página de información general de los libros de reproducción de casos de uso.
+title: Información general de Manuales de tácticas de casos de uso
+description: Esta es la página de información general de los Manuales de tácticas de casos de uso.
 source-git-commit: a389631a2baa639496f4168a164aa3461157f5ff
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '21'
-ht-degree: 4%
+ht-degree: 100%
 
 ---
 
 
 # Información general
 
-Bienvenido a la guía de usuario de UCP.
+Bienvenido a la guía del usuario de UCP.
 
 MÁS...
 
