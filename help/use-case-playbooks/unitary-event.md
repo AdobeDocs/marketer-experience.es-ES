@@ -3,9 +3,9 @@ title: Evento unitario
 description: Esta es una página de instrucciones para simular el tipo de validación del recorrido '[!UICONTROL Evento unitario]'.
 exl-id: 314f967c-e10f-4832-bdba-901424dc2eeb
 source-git-commit: 194667c26ed002be166ab91cc778594dc1f09238
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '889'
-ht-degree: 37%
+ht-degree: 100%
 
 ---
 
@@ -33,8 +33,8 @@ ht-degree: 37%
 
 >[!TIP]
 >
->Si utiliza un terminal para ejecutar los curls, puede definir valores de variables antes de ejecutar los curls, de modo que no sea necesario reemplazar esos valores en curls individuales.
->Por ejemplo: si establece `ORG_ID=************@AdobeOrg`, shell sustituirá automáticamente cada aparición de `$ORG_ID` con el valor, para que pueda copiar, pegar y ejecutar los rizos siguientes sin ninguna modificación.
+>Si utiliza un terminal para ejecutar las solicitudes curl, puede definir valores de variables antes de ejecutar las solicitudes curl, de modo que no sea necesario reemplazar esos valores en curls individuales.
+>Por ejemplo: si establece `ORG_ID=************@AdobeOrg`, el shell sustituirá automáticamente cada aparición de `$ORG_ID` por el valor, para que pueda copiar, pegar y ejecutar las solicitudes curl siguientes sin ninguna modificación.
 >
 > En todo este documento se utilizan las siguientes variables
 >
@@ -52,7 +52,7 @@ ht-degree: 37%
 >
 > PROFILE_DATASET_ID
 >
-> RECORRIDO_ID
+> JOURNEY_ID
 >
 > PROFILE_BASE_CONNECTION_ID
 >
@@ -68,7 +68,7 @@ ht-degree: 37%
 >
 > CUSTOMER_LAST_NAME
 >
-> CORREO ELECTRÓNICO
+> EMAIL
 >
 > EVENT_SCHEMA_REF
 >
@@ -114,7 +114,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       --header "Content-Type: application/json" 
       ```
 
-   1. La publicación del recorrido puede tardar algún tiempo, por lo que para comprobar el estado ejecute debajo de cURL, hasta que el `response.status` es `SUCCESS`, asegúrese de esperar 10-15 segundos si la publicación en recorrido tarda.
+   1. La publicación del recorrido puede tardar algún tiempo, así que para comprobar el estado ejecute la solicitud cURL siguiente, hasta que `response.status` sea `SUCCESS`, asegúrese de esperar 10-15 segundos si la publicación del recorrido tarda tiempo.
 
       ```bash
       curl --location "https://journey-private.adobe.io/authoring/jobs/$JOB_ID" \
@@ -129,13 +129,13 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
 
 >[!TIP]
 >
->Si su proveedor de correo electrónico admite más correos electrónicos, puede reutilizar la misma dirección de correo electrónico adjuntando `+<variable>` en su correo electrónico, p. ej. `usertest@email.com` se puede reanudar como `usertest+v1@email.com` o `usertest+24jul@email.com`. Esto sería útil para tener un perfil nuevo cada vez, pero utilizando la misma dirección de correo electrónico.
+>Si su proveedor de correo electrónico admite correos electrónicos Plus, puede reutilizar la misma dirección de correo electrónico añadiendo `+<variable>` a su correo electrónico, p. ej. `usertest@email.com` se puede reutilizar como `usertest+v1@email.com` o `usertest+24jul@email.com`. Esto sería útil para tener un perfil nuevo cada vez, pero utilizando la misma dirección de correo electrónico.
 >
->P.D: Los correos electrónicos Plus son una función configurable que debe admitir el proveedor de correo electrónico. Compruebe si puede recibir correos electrónicos en dichas direcciones antes de utilizarlas en la prueba.
+>P.D: los correos electrónicos Plus son una función configurable que debe ser compatible con el proveedor de correo electrónico. Compruebe si puede recibir correos electrónicos en dichas direcciones antes de utilizarlas en la prueba.
 
 1. El primer usuario debe crear **[!DNL customer dataset]** y **[!DNL HTTP Streaming Inlet Connection]**.
 1. Si ya ha creado las páginas **[!DNL customer dataset]** y **[!DNL HTTP Streaming Inlet Connection]**, vaya directamente al paso `5`.
-1. Cree un conjunto de datos de perfil de cliente ejecutando la siguiente cURL.
+1. Cree un conjunto de datos de perfil de cliente ejecutando la siguiente solicitud cURL.
 
    ```bash
    curl --location "https://platform.adobe.io/data/foundation/catalog/dataSet" \
@@ -168,7 +168,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
 
    La respuesta tendrá el formato `"@/dataSets/<PROFILE_DATASET_ID>"`.
 
-1. Crear **[!DNL HTTP Streaming Inlet Connection]** con la ayuda de los siguientes pasos.
+1. Cree **[!DNL HTTP Streaming Inlet Connection]** con la ayuda de los siguientes pasos.
    1. Cree una conexión base.
 
       ```bash
@@ -194,9 +194,9 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-      Obtenga el ID de conexión base de la respuesta de y utilícelo en lugar de `PROFILE_BASE_CONNECTION_ID` en las siguientes cURL
+      Obtenga el ID de conexión base de la respuesta y utilícelo en lugar de `PROFILE_BASE_CONNECTION_ID` en las siguientes solicitudes cURL
 
-   1. Crear conexión de origen.
+   1. Cree una conexión de origen.
 
       ```bash
       curl --location "https://platform.adobe.io/data/foundation/flowservice/sourceConnections" \
@@ -248,7 +248,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-      Obtenga el ID de conexión de destino de la respuesta de y utilícelo en lugar de `PROFILE_TARGET_CONNECTION_ID`
+      Obtenga el ID de conexión de destino de la respuesta y utilícelo en lugar de `PROFILE_TARGET_CONNECTION_ID`
 
    1. Cree un flujo de datos.
 
@@ -275,7 +275,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-   1. Obtener conexión base. El resultado contendrá inletUrl necesaria para enviar datos de perfil.
+   1. Obtenga una conexión base. El resultado contendrá inletUrl necesario para enviar datos de perfil.
 
       ```bash
       curl --location "https://platform.adobe.io/data/foundation/flowservice/connections/$PROFILE_BASE_CONNECTION_ID" \
@@ -286,17 +286,17 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       --header "x-api-key: $API_KEY"
       ```
 
-      Obtenga inletUrl de la respuesta y úselo en lugar de `PROFILE_INLET_URL`
+      Obtenga inletUrl de la respuesta y utilícelo en lugar de `PROFILE_INLET_URL`
 
-1. En este paso el usuario debe tener valores de `PROFILE_DATASET_ID` y `PROFILE_INLET_URL`; si no es así, consulte esta etapa `3` o `4` respectivamente.
-1. Para ingerir un cliente, el usuario debe reemplazar `CUSTOMER_MOBILE_NUMBER`, `CUSTOMER_FIRST_NAME`, `CUSTOMER_LAST_NAME` y `EMAIL` en, debajo de cURLs.
+1. En este paso el usuario debe tener valores de `PROFILE_DATASET_ID` y `PROFILE_INLET_URL`; si no es así, consulte el paso `3` o `4` respectivamente.
+1. Para ingerir un cliente, el usuario debe reemplazar `CUSTOMER_MOBILE_NUMBER`, `CUSTOMER_FIRST_NAME`, `CUSTOMER_LAST_NAME` y `EMAIL` en, las solicitudes cURLs siguientes.
 
    1. `CUSTOMER_MOBILE_NUMBER` sería el número de móvil, por ejemplo `+1 000-000-0000`
    1. `CUSTOMER_FIRST_NAME` sería el nombre del usuario
    1. `CUSTOMER_LAST_NAME` sería el apellido del usuario
    1. `EMAIL` sería la dirección de correo electrónico del usuario, esto es crucial para utilizar una identificación de correo electrónico distinta para que se pueda ingerir un perfil nuevo.
 
-1. Finalmente, ejecute el curl para introducir el perfil del cliente. Actualizar `body.xdmEntity.consents.marketing.preferred` hasta `email`, `sms`, o `push` en función de los canales que pretenda verificar. Establezca también las opciones correspondientes `val` hasta `y`.
+1. Finalmente, ejecute el curl para introducir el perfil del cliente. Actualice `body.xdmEntity.consents.marketing.preferred` hasta `email`, `sms` o `push` en función de los canales que pretenda verificar. Establezca también las opciones correspondientes `val` hasta `y`.
 
    ```bash
    curl --location "$PROFILE_INLET_URL?synchronousValidation=true" \
@@ -354,11 +354,11 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
    }'
    ```
 
-## Ingesta de evento de Déclencheur de Recorrido
+## Ingesta de evento de activador de recorrido
 
 1. La primera vez que el usuario necesita crear **[!DNL event dataset]** y **[!DNL HTTP Streaming Inlet Connection for events]**
 1. Si ya ha creado las páginas **[!DNL event dataset]** y **[!DNL HTTP Streaming Inlet Connection for events]**, vaya directamente al paso `5`.
-1. Cree un conjunto de datos de evento ejecutando la siguiente cURL.
+1. Cree un conjunto de datos de evento ejecutando la siguiente solicitud cURL.
 
    ```bash
    curl --location "https://platform.adobe.io/data/foundation/catalog/dataSet" \
@@ -391,7 +391,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
 
    La respuesta tendrá el formato `"@/dataSets/<EVENT_DATASET_ID>"`
 
-1. Crear **[!DNL HTTP Streaming Inlet Connection for events]**  con la ayuda de los siguientes pasos.
+1. Cree **[!DNL HTTP Streaming Inlet Connection for events]**  con la ayuda de los siguientes pasos.
    <!-- TODO: Is the name unique? If so, we may need to generate and provide in variables.txt-->
    1. Cree una conexión base.
 
@@ -418,9 +418,9 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-      Obtenga el ID de conexión base de la respuesta de y utilícelo en lugar de `EVENT_BASE_CONNECTION_ID`
+      Obtenga el ID de conexión base de la respuesta y utilícelo en lugar de `EVENT_BASE_CONNECTION_ID`
 
-   1. Crear conexión de origen.
+   1. Cree una conexión de origen.
 
       ```bash
       curl --location "https://platform.adobe.io/data/foundation/flowservice/sourceConnections" \
@@ -472,7 +472,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-      Obtenga el ID de conexión de destino de la respuesta de y utilícelo en lugar de `EVENT_TARGET_CONNECTION_ID`
+      Obtenga el ID de conexión de destino de la respuesta y utilícelo en lugar de `EVENT_TARGET_CONNECTION_ID`
 
    1. Cree un flujo de datos.
 
@@ -499,7 +499,7 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
       }'
       ```
 
-   1. Obtener conexión base. El resultado contendrá inletUrl necesaria para enviar datos de perfil.
+   1. Obtenga una conexión base. El resultado contendrá inletUrl necesario para enviar datos de perfil.
 
    ```bash
    curl --location "https://platform.adobe.io/data/foundation/flowservice/connections/$EVENT_BASE_CONNECTION_ID" \
@@ -510,14 +510,14 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
        --header "Content-Type: application/json" 
    ```
 
-   Obtenga inletUrl de la respuesta y úselo en lugar de `EVENT_INLET_URL`
+   Obtenga inletUrl de la respuesta y utilícelo en lugar de `EVENT_INLET_URL`
 
-1. En este paso el usuario debe tener valores de `EVENT_DATASET_ID` y `EVENT_INLET_URL`; si no es así, consulte esta etapa `3` o `4` respectivamente.
-1. Para ingerir un evento, el usuario debe cambiar la variable de tiempo `TIMESTAMP` en el cuerpo de la solicitud de cURL a continuación.
+1. En este paso el usuario debe tener valores de `EVENT_DATASET_ID` y `EVENT_INLET_URL`; si no es así, consulte el paso `3` o `4` respectivamente.
+1. Para ingerir el evento, el usuario necesita cambiar la variable de tiempo `TIMESTAMP` en el cuerpo de la solicitud cURL siguiente.
 
-   1. Reemplazar `body.xdmEntity` con contenido del json de evento descargado.
+   1. Reemplace `body.xdmEntity` por contenido del json de evento descargado.
    1. `TIMESTAMP` Seleccione la hora de ocurrencia del evento, utilice la marca de tiempo en la zona horaria UTC, p. ej. `2023-09-05T23:57:00.071+00:00`.
-   1. Establecer un valor único para la variable `UNIQUE_EVENT_ID`.
+   1. Establezca un valor único para la variable `UNIQUE_EVENT_ID`.
 
    ```bash
    curl --location "$EVENT_INLET_URL?synchronousValidation=true" \
