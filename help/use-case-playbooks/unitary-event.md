@@ -3,7 +3,7 @@ title: Evento unitario
 description: Esta es una página de instrucciones para simular el tipo de validación del recorrido '[!UICONTROL Evento unitario]'.
 exl-id: 314f967c-e10f-4832-bdba-901424dc2eeb
 source-git-commit: 194667c26ed002be166ab91cc778594dc1f09238
-workflow-type: ht
+workflow-type: tm+mt
 source-wordcount: '889'
 ht-degree: 100%
 
