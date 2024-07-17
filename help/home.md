@@ -1,13 +1,13 @@
 ---
 title: Experiencia en marketing
 description: Esta es la página de información general de [!DNL Marketer Experience].
-source-git-commit: a3eef4938f645e4db1db335aa36d988c93921f18
-workflow-type: ht
+exl-id: bc0bab50-06ed-4e2f-a9c9-38afc883acc1
+source-git-commit: 3f295267af7f21120eef54d07627ac802f2283f9
+workflow-type: tm+mt
 source-wordcount: '15'
 ht-degree: 100%
 
 ---
-
 
 # Información general de Experiencia en marketing
 
