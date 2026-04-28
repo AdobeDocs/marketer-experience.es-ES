@@ -34,7 +34,7 @@ ht-degree: 98%
 >[!TIP]
 >
 >Si utiliza un terminal para ejecutar las solicitudes curl, puede definir valores de variables antes de ejecutar las solicitudes curl, de modo que no sea necesario reemplazar esos valores en curls individuales.
->Por ejemplo: si establece `ORG_ID=************@AdobeOrg`, el shell sustituirá automáticamente cada aparición de `$ORG_ID` por el valor, para que pueda copiar, pegar y ejecutar las solicitudes curl siguientes sin ninguna modificación.
+>Por ejemplo: si establece `ORG_ID=**&#x200B;**&#x200B;**&#x200B;**&#x200B;**&#x200B;**@AdobeOrg`, el shell sustituirá automáticamente cada aparición de `$ORG_ID` por el valor, para que pueda copiar, pegar y ejecutar las solicitudes curl siguientes sin ninguna modificación.
 >
 > En todo este documento se utilizan las siguientes variables
 >
