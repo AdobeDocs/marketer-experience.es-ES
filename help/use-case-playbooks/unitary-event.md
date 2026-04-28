@@ -611,12 +611,12 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
                "timestamp": "'$TIMESTAMP'",
                "web": {
                    "webInteraction": {
-                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=en",
+                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=es",
                        "name": "Sample value",
                        "region": "Sample value"
                    },
                    "webPageDetails": {
-                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=en",
+                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=es",
                        "isErrorPage": false,
                        "isHomePage": false,
                        "name": "Sample value",
