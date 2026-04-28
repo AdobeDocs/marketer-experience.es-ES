@@ -4,8 +4,8 @@ description: Esta es una página de instrucciones para simular el tipo de valida
 exl-id: 314f967c-e10f-4832-bdba-901424dc2eeb
 source-git-commit: 194667c26ed002be166ab91cc778594dc1f09238
 workflow-type: tm+mt
-source-wordcount: '839'
-ht-degree: 100%
+source-wordcount: '849'
+ht-degree: 98%
 
 ---
 
@@ -26,7 +26,7 @@ ht-degree: 100%
 
 * Utilice el manual de tácticas para crear recursos de instancia como **[!UICONTROL Recorrido]**, **[!UICONTROL Esquemas]**, **[!UICONTROL Segmentos]**, **[!UICONTROL Mensajes]** etc.
 
-* Los recursos creados se mostrarán en la página `Bill Of Material` 
+* Los recursos creados se mostrarán en la página `Bill Of Material`
 
 <!-- TODO: attached image needs to change once postman is removed from UI -->
 ![Página de lista de materiales](../assets/bom-page.png)
@@ -611,12 +611,12 @@ Hay 2 formas de publicar el recorrido; puede elegir cualquiera de ellas:
                "timestamp": "'$TIMESTAMP'",
                "web": {
                    "webInteraction": {
-                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=es",
+                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=en",
                        "name": "Sample value",
                        "region": "Sample value"
                    },
                    "webPageDetails": {
-                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=es",
+                       "URL": "https://experienceleague.adobe.com/docs/experience-platform/edge/data-collection/collect-commerce-data.html?lang=en",
                        "isErrorPage": false,
                        "isHomePage": false,
                        "name": "Sample value",
@@ -647,8 +647,8 @@ Debe recibir un mensaje en su canal preferido seleccionado utilizado en **[!DNL 
 
 También puede consultar `Journey Report`; para comprobarlo haga clic en `Journey Object` en `Bill of Materials page` esto le redirigirá a `Journey Details page`.
 
-Para cualquier recorrido publicado, el usuario debe obtener un botón **[!UICONTROL Ver informe]**
-![ Página de informe del recorrido](../assets/journey-report-page.png)
+Para cualquier Recorrido publicado, el usuario debe obtener un botón **[!UICONTROL Ver informe]**
+![Página de informe de Recorrido](../assets/journey-report-page.png)
 
 
 ## Limpieza
